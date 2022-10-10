@@ -1,4 +1,4 @@
-# Workshop Name
+# Data Visualization in R with ggplot2 
 [description]
 
 
@@ -23,6 +23,8 @@ Before the class, follow the [installation instructions to download all required
     - [file2]
     - [file3]
 - PresentationMaterials: This folder contains PowerPoint slides and other presentation materials used in the workshop
+    - slides/
+    - slides/
 - Resources: This folder contains cheatsheets to assist you during the workshop and links to external sources for you to continue your learning
 
 
