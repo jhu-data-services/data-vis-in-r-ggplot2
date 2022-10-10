@@ -1,0 +1,40 @@
+---
+title: "Data Visualization in R with ggplot Exercises"
+---
+
+## Your Turn 0 - Using RMarkdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can embed an R code chunk like this:
+
+```{r}
+## My code
+```
+
+Modify the setup chunk to import the **tidyverse** library:
+
+```{r setup}
+## My code
+```
+
+
+## Your Turn 1 - Explore the data
+
+Using `head`, `glimpse`, or `head`, answer:
+- How many **variables** are present?
+- How many **observations** are present?
+- How many **numeric** variables are present? What are they?
+
+```{r}
+head(starwars)
+```
+
+## Your Turn 2 - ggplot2
+
+1. Modify the code below to plot height vs. birth_year. See the help for the data frame for the definition of `birth_year` in this context.
+
+```{r height-birth-year}
+ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
+  geom_point()
+```
