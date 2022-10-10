@@ -6,7 +6,7 @@ institute: "<br>JHU Data Services"
 date: "October 12<sup>th</sup>, 2022"
 output:
   xaringan::moon_reader:
-    css: ["../slides-style.css", "../xaringan-themer.css"]
+    css: ["css/slides-style.css", "css/xaringan-themer.css"]
     lib_dir: libs
     nature:
       highlightStyle: solarized-light
@@ -20,7 +20,7 @@ output:
         </div>
 ---
 
-```{r child = "../setup.Rmd"}
+```{r child = "setup.Rmd"}
 ```
 
 ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
