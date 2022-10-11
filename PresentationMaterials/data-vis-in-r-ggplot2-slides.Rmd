@@ -162,6 +162,229 @@ ggplot(data = [dataset],
 
 ---
 
+.panelset[
+.panel[.panel-name[Plot]
+
+```{r out.width="60%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars, 
+       mapping = aes(x = height, y = mass)) +
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters",
+       x = "Height (cm)", y = "Weight (kg)")
+```
+]
+
+.panel[.panel-name[Code]
+
+```{r eval=FALSE}
+ggplot(data = starwars, 
+       mapping = aes(x = height, y = mass)) +
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters",
+       x = "Height (cm)", y = "Weight (kg)")
+```
+]
+]
+
+---
+
+class: middle
+
+# Building a Plot
+
+---
+
+- Start with the `starwars` dataframe
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars)
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars)
+```
+]
+
+---
+
+- Start with the `starwars` dataframe, map `height` to the x-axis
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height))
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height))
+```
+]
+
+---
+
+- Start with the `starwars` dataframe, map `height` to the x axis and `mass` to the y-axis
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass))
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass))
+```
+]
+
+---
+
+- Start with the `starwars` dataframe, map `height` to the x axis and `mass` to the y-axis. Represent each observation with a point.
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass)) + 
+  geom_point()
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass)) +
+  geom_point()
+```
+]
+
+---
+
+- Start with the `starwars` dataframe, map `height` to the x axis and `mass` to the y-axis. Represent each observation with a point and map `gender` to the color of each point
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender)) + 
+  geom_point()
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender)) +
+  geom_point()
+```
+]
+
+---
+
+- Start with the `starwars` dataframe, map `height` to the x axis and `mass` to the y-axis. Represent each observation with a point and map `gender` to the color of each point and scale each point by the `birth_year` of the observation.
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) + 
+  geom_point()
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) +
+  geom_point()
+```
+]
+---
+
+- Start with the `starwars` dataframe, map `height` to the x axis and `mass` to the y-axis. Represent each observation with a point and map `gender` to the color of each point and scale each point by the `birth_year` of the observation. Title the plot "Mass vs. height of Starwars characters".
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) + 
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters")
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) +
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters")
+```
+]
+
+---
+
+- Start with the `starwars` dataframe, map `height` to the x axis and `mass` to the y-axis. Represent each observation with a point and map `gender` to the color of each point and scale each point by the `birth_year` of the observation. Title the plot "Mass vs. height of Starwars characters" and add the subtitle "
+
+.pull-left[
+
+```{r out.width = "50%", eval=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) + 
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters",
+       subtitle = "by gender and birth year")
+```
+]
+
+.pull-right[
+```{r out.width="100%", echo=FALSE, warning=FALSE, message=FALSE}
+ggplot(data = starwars,
+       mapping = aes(x = height,
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) +
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters",
+       subtitle = "by gender and birth year")
+```
+]
+
+---
+
 class: middle
 
 # Visualizing Star Wars
@@ -245,6 +468,24 @@ knitr::include_graphics("img/starwars-help-annotated.png")
 ```{r out.width="60%"}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   geom_point()
+```
+
+---
+
+class: middle
+
+# Mapping
+
+---
+
+## Mapping
+
+- A **mapping** describes how to connect features of a data frame to properties of a geometry, and is described by an aesthetic.
+
+```{r out.width="60%", warning=FALSE}
+ggplot(data = starwars, 
+       mapping = aes(x = height, y = mass)) +           #<<
+  geom_point() 
 ```
 
 ---
