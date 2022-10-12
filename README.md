@@ -27,7 +27,7 @@ If you have taken the live webinar for this class, please take this survey: [bit
 
 
 ## License and Terms of Use
-The presentation materials are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/), attributable to [Data Services](https://dataservices.library.jhu.edu/), Johns Hopkins University. 
+The presentation materials are adapted from https://github.com/rstudio-education/bootcamper licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/), attributable to [Data Services](https://dataservices.library.jhu.edu/), Johns Hopkins University. 
 
 See LICENSE file for additional code licensing and re-use information.   
 

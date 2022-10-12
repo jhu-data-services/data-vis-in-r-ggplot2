@@ -19,6 +19,8 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 dev.off <- function(){
   invisible(grDevices::dev.off())
 }
+# panelset
+xaringanExtra::use_panelset()
 # countdown
 library(countdown)
 # conflicted

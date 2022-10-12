@@ -261,3 +261,13 @@ div.my-footer a {
   padding-right: 4em;
   font-size: 70%;
 }
+
+/* Panelset */
+.panelset {
+  --panel-tab-foreground: currentColor;
+  --panel-tab-active-foreground: #0051BA;
+  --panel-tab-hover-foreground: #d22;
+  --panel-tabs-border-bottom: #ddd;
+  --panel-tab-inactive-opacity: 0.5;
+  --panel-tab-font-family: Roboto, Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\
+}
