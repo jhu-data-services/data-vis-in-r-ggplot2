@@ -12,6 +12,8 @@ This repository contains materials for one of our live webinars open to JHU stud
 
 As of March 2020, Data Services workshops are being held virtually on Zoom. [See our calendar to register for upcoming workshops.](https://dataservices.library.jhu.edu/training-workshops/calendar/)
 
+Access the workshop slides online at [Data Visualization in R with ggplot2 Slides](https://jhu-data-services.github.io/data-vis-in-r-ggplot2/PresentationMaterials/data-vis-in-r-ggplot2-slides)
+
 
 ## Description of Files
 - In-ClassScripts: This folder contains code files you will need for the workshop:
