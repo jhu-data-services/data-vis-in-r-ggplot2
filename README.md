@@ -19,7 +19,7 @@ As of March 2020, Data Services workshops are being held virtually on Zoom. [See
 - PresentationMaterials: This folder contains PowerPoint slides and other presentation materials used in the workshop
     - `data-vis-in-r-ggplot2-slides.Rmd`
 - Resources: This folder contains cheatsheets to assist you during the workshop and links to external sources for you to continue your learning
-    -
+    - `ggplot2-cheatsheet.pdf`
 
 
 ## Post-Class Survey
@@ -36,4 +36,4 @@ The images, external resources, and cheatsheets linked in this repository may ha
 
 ## Citation
 Please cite this material as:    
-Johns Hopkins University Data Services. [Date of workshop]. [Workshop title]. [URL] 
+Johns Hopkins University Data Services. October 12th 2022. Data Visualization in R with ggplot2. github.com/jhu-data-services/data-vis-in-r-with-ggplot2
