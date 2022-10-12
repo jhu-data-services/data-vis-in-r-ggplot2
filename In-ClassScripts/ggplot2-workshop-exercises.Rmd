@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization in R with ggplot Exercises"
+title: "Data Visualization in R with ggplot2 Exercises"
 ---
 
 ## Your Turn 0 - Using RMarkdown
@@ -16,25 +16,92 @@ Modify the setup chunk to import the **tidyverse** library:
 
 ```{r setup}
 ## My code
+library(tidyverse)
 ```
 
 
 ## Your Turn 1 - Explore the data
 
-Using `head`, `glimpse`, or `head`, answer:
+Using `head`, `glimpse`, or `skim`, answer:
 - How many **variables** are present?
 - How many **observations** are present?
 - How many **numeric** variables are present? What are they?
 
 ```{r}
-head(starwars)
+View(starwars)
 ```
 
-## Your Turn 2 - ggplot2
+## Your Turn 2 - Mappings
 
-1. Modify the code below to plot height vs. birth_year. See the help for the data frame for the definition of `birth_year` in this context.
+1. Modify the code below to plot height vs. birth_year. See `?starwars` for the definition of `birth_year` in this context.
 
 ```{r height-birth-year}
-ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
+ggplot(data = starwars, mapping = aes(x = height, y = birth_year)) +
   geom_point()
+```
+
+2. You should observe that a few observations appear to be outliers. Can you guess who those characters are? Hint: Run `View(starwars)` in the Console to take a look at the raw data.
+
+
+## Your Turn 3 - Aesthetics
+
+1. Map the variable `sex` to both point color and shape. What do you notice?
+```{r gender-color-shape}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point()
+```
+
+2. Try mapping a categorical variable to x, for example `eye_color`. What happens?
+
+```{r categorical-to-x}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point()
+```
+
+3. Try mapping a continuous variable to shape, for example `mass`. What happens?
+
+```{r categorical-to-x}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point()
+```
+
+## Your Turn 4 - Themes
+
+1. Modify the following plot to use a `theme_minimal()` theme.
+```{r themes}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point() +
+# My theme
+```
+
+2. Modify the below plot to:
+- Add a plot title "Mass vs. height of Starwars characters"
+- Add the plot subtitle "by gender and birth year"
+- Add the x-label "Height (cm)"
+- Add the y-label "Weight (kg)"
+- Set the axis tick labels to size 14
+- Set the axis titles to size 16
+- Set the plot tile to size 18
+
+
+```{r themes}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point() +
+  labs(title = "test", subtitle = "test2") + 
+  theme_classic() +
+  theme(axis.text = element_text(size = ),
+        axis.title = element_text(size = ),
+        plot.title = element_text(size = ),
+        plot.subtitle = element_text(size = ),
+        legend.position = )
 ```
