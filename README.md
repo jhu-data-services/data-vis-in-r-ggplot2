@@ -29,7 +29,7 @@ Before the class, follow the [installation instructions to download all required
 
 
 ## Post-Class Survey
-If you have taken the live webinar for this class, please take this survey: [link name](url)
+If you have taken the live webinar for this class, please take this survey: [bit.ly/ggplot2-survey](bit.ly/ggplot2-survey)
 
 
 ## License and Terms of Use
