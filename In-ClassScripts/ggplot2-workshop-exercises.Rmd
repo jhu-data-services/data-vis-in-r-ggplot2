@@ -16,7 +16,6 @@ Modify the setup chunk to import the **tidyverse** library:
 
 ```{r setup}
 ## My code
-library(tidyverse)
 ```
 
 
@@ -36,7 +35,7 @@ View(starwars)
 1. Modify the code below to plot height vs. birth_year. See `?starwars` for the definition of `birth_year` in this context.
 
 ```{r height-birth-year}
-ggplot(data = starwars, mapping = aes(x = height, y = birth_year)) +
+ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   geom_point()
 ```
 
@@ -46,6 +45,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = birth_year)) +
 ## Your Turn 3 - Aesthetics
 
 1. Map the variable `sex` to both point color and shape. What do you notice?
+
 ```{r gender-color-shape}
 ggplot(data = starwars, 
        mapping = aes(x = height, 
@@ -95,9 +95,11 @@ ggplot(data = starwars,
 ```{r themes}
 ggplot(data = starwars, 
        mapping = aes(x = height, 
-                     y = mass)) +
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) +
   geom_point() +
-  labs(title = "test", subtitle = "test2") + 
+  labs(title = "", subtitle = "") + 
   theme_classic() +
   theme(axis.text = element_text(size = ),
         axis.title = element_text(size = ),

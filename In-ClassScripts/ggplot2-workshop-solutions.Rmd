@@ -1,0 +1,184 @@
+---
+title: "Data Visualization in R with ggplot2 Workshop"
+subtitle: "Solutions to the provided exercises"
+author: "JHU Data Services"
+output: 
+  html_document:
+    theme: journal
+    highlight: pygments
+    toc: true
+    toc_float: true
+date: "2022-10-12"
+---
+
+## Your Turn 0 - Using RMarkdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can embed an R code chunk like this:
+
+```{r}
+## My code
+```
+
+Modify the setup chunk to import the **tidyverse** library:
+
+```{r setup}
+library(tidyverse)
+## Configures the size of plots displayed in the knitted document
+knitr::opts_chunk$set(echo = TRUE, fig.width = 5, fig.height = 3)
+```
+
+
+## Your Turn 1 - Explore the data
+
+Using `head`, `glimpse`, or `skim`, answer:
+- How many **variables** are present? 14 (from glimpse)
+- How many **observations** are present? 87 (from glimpse)
+- How many **numeric** variables are present? What are they? 3, height, mass, birth_year (from skim)
+
+```{r data exploration, eval=FALSE, }
+# head will provide solutions to all except observations
+head(starwars)
+
+# glimpse (from dplyr) or skim (from skimr) will provide answers to all solutions.
+glimpse(starwars)
+
+# To load skimr:
+library(skimr)
+skim(starwars)
+
+# To see numeric columns, with names, specifically, you can use `select_if()` from dplyr:
+select_if(starwars, is.numeric)
+```
+
+### Solution
+
+- `r ncol(starwars)` variables are present. The number of variables correspond to the number of columns in our `starwars` dataframe.
+- `r nrow(starwars)` observations present. The number of observations correspond to the number of columns in the `starwars` dataframe.
+- There are `r ncol(select_if(starwars, is.numeric))` numeric variables. They are `r colnames(select_if(starwars, is.numeric))`.
+
+## Your Turn 2 - Mappings
+
+1. Modify the code below to plot height vs. birth_year. See `?starwars` for the definition of `birth_year` in this context.
+
+    ```{r height-birth-year, out.width="70%"}
+    ggplot(data = starwars, mapping = aes(x = height, 
+                                          y = birth_year)) +
+      geom_point()
+    ```
+
+2. You should observe that a few observations appear to be outliers. Can you guess who those characters are? Hint: Run `View(starwars)` in the Console to take a look at the raw data.
+
+
+### Solution
+
+Their are three outliers (three points appear visually distanct in birth year from the remainder of points). We can confirm that these three points are in fact outliers using a boxplot:
+
+```{r height-birth-year-boxplot, out.width="70%", warning=FALSE, message=FALSE}
+ggplot(data = starwars, mapping = aes(x = height, 
+                                      y = birth_year)) +
+  geom_boxplot()
+```
+
+We can use an arrange (from `dplyr`) to sort in descending order by birth_year and return the first three occurrences:
+
+```{r height-birth-year-arrange, out.width="70%"}
+starwars %>% arrange(-birth_year) %>% slice(1:3)
+```
+
+
+## Your Turn 3 - Aesthetics
+
+1. Map the variable `sex` to both point color and shape. What do you notice?
+
+    ```{r gender-color-shape, out.width="70%"}
+    ggplot(data = starwars, 
+           mapping = aes(x = height, 
+                         y = mass,
+                         color = sex,
+                         shape = sex)) +
+      geom_point()
+    ```
+
+### Solution
+
+NA is not plotted. This is a feature of `ggplot2`. To fix use replace_na from `tidyr`:
+
+```{r gender-color-shape-replace-na, fig.width=5, out.width="70%"}
+starwars = starwars %>% 
+  mutate(sex = replace_na(sex, "unknown"))
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass,
+                     color = sex,
+                     shape = sex)) +
+  geom_point()
+```
+
+Now the NAs, renamed to "unknown", are shown.
+
+2. Try mapping a categorical variable to x, for example `eye_color`. What happens?
+
+    ```{r categorical-to-x, out.width="%70"}
+    ggplot(data = starwars, 
+           mapping = aes(x = eye_color, 
+                         y = mass)) +
+      geom_point()
+    ```
+
+A scatterplot (`geom_point()`) is being used to repesent categorical data. A scatter plot should not be used to compare a categorical to a continuous variable. Instead a boxplot (`geom_boxplot()`), violin plot (`geom_violin()`), jitter plot (`geom_jitter()`), or beeswarm plot (`geom_beeswarm()` from the **ggbeeswarm** package) would be more appropriate.
+
+3. Try mapping a continuous variable to shape, for example `mass`. What happens?
+
+    ```{r continuous-to-shape, eval=FALSE}
+    ggplot(data = starwars, 
+           mapping = aes(x = height, 
+                         y = mass,
+                         shape = mass)) +
+      geom_point()
+    ```
+    
+    
+### Solution    
+
+A continuous variable can not be mapped to a categorical aesthetic like shape, and you will receive an error indicating as much.
+
+
+## Your Turn 4 - Themes
+
+1. Modify the following plot to use a `theme_minimal()` theme.
+
+```{r themes, out.width="70%"}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point() +
+  theme_minimal()
+```
+
+2. Modify the below plot to:
+- Add a plot title "Mass vs. height of Starwars characters"
+- Add the plot subtitle "by gender and birth year"
+- Add the x-label "Height (cm)"
+- Add the y-label "Weight (kg)"
+- Set the axis tick labels to size 14
+- Set the axis titles to size 16
+- Set the plot tile to size 18
+
+
+```{r themes-practice}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass,
+                     color = gender,
+                     size = birth_year)) +
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters", 
+       subtitle = "by gender and birth year") + 
+  theme_classic() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        plot.title = element_text(size = 18),
+        legend.position = )
+```
