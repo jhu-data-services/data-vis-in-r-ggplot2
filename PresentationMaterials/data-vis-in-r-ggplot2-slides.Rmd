@@ -1,9 +1,9 @@
 ---
 title: "Data Visualization in R with ggplot2 `r emo::ji('bar_chart')`"
 subtitle: "An Introductory Workshop"
-author: "Pete Lawson, Ph.D.<br>Harshil Desai, TA<br>"
+author: "Pete Lawson, Ph.D."
 institute: "<br>JHU Data Services"
-date: "October 12<sup>th</sup>, 2022"
+date: "March 7<sup>th</sup>, 2023"
 output:
   xaringan::moon_reader:
     css: ["css/slides-style.css", "css/xaringan-themer.css"]
@@ -33,8 +33,6 @@ library(icons)
 class: top
 
 ## Workshop guidelines
-
-- **Workshop will be recorded.** We will make our best effort to respect the privacy of participants. Chat will not be recorded. 
 
 .pull-left[
 - **Help** is always available.
@@ -116,32 +114,7 @@ ggplot(data = [dataset],
 
 ---
 
-## Parameters of a full ggplot2 visualization:
-
-- `data`: the data frame to be plotted
-- `geometry`: how the data is to be displayed (e.g., scatterplot, barplot, etc.)
-- `mapping`: how the properties of the data map to the properties of the geometry (e.g., which columns map to X and Y coordinates)
-- `stat`: the transformation to apply to the data (e.g., count the number of observations)
-- `position`: how to adjust the positions of displayed elements (e.g., jittering points in a scatterplot)
-- `coordinate`: whether to use Cartesian coordinates or polar coordinates
-- `facet`: how to subset the data to create multiple subplots
-- `theme`: themes control the display of all non-data elements of the plot
-
-
----
-
 .panelset[
-.panel[.panel-name[Plot]
-
-```{r out.width="60%", echo=FALSE, message=FALSE}
-ggplot(data = starwars, 
-       mapping = aes(x = height, y = mass)) +
-  geom_point() +
-  labs(title = "Mass vs. height of Starwars characters",
-       x = "Height (cm)", y = "Weight (kg)")
-```
-]
-
 .panel[.panel-name[Code]
 
 ```{r eval=FALSE}
@@ -152,56 +125,29 @@ ggplot(data = starwars,
        x = "Height (cm)", y = "Weight (kg)")
 ```
 ]
-]
+.panel[.panel-name[Plot]
 
----
-
-```{r out.width="75%", echo=FALSE, message=FALSE}
+```{r out.width="60%", echo=FALSE, message=FALSE}
 ggplot(data = starwars, 
-       mapping = aes(x = height, y = birth_year)) +
+       mapping = aes(x = height, y = mass)) +
   geom_point() +
-  labs(title = "Mass vs. Birth year of Starwars characters",
-       x = "Height (cm)", y = "Birth year")
-```
-
----
-
-.discussion[
-- What are the functions doing the plotting? 
-- What is the dataset being plotted? 
-- Which variable is on the x-axis and which variable is on the y-axis? 
-- What does the warning mean?
-]
-
-```{r eval=FALSE}
-ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
-  geom_point() +
-  labs(
-    title = "Mass vs. height of Starwars characters",
-    x = "Height (cm)", 
-    y = "Weight (kg)"
-    )
-```
-
-```
-## Warning: Removed 28 rows containing missing values (geom_point).
-```
-
----
-
-.discussion[
-What does `geom_smooth()` do?
-]
-
-```{r out.width="50%", warning=FALSE, message=FALSE}
-ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
-  geom_point() +
-  geom_smooth() + #<<
   labs(title = "Mass vs. height of Starwars characters",
        x = "Height (cm)", y = "Weight (kg)")
 ```
+]]
 
+---
 
+## Parameters of a full ggplot2 visualization:
+
+- `data`: the data frame to be plotted
+- `geometry`: how the data is to be displayed (e.g., scatterplot, barplot, etc.)
+- `mapping`: how the properties of the data map to the properties of the geometry (e.g., which columns map to X and Y coordinates)
+- `stat`: the transformation to apply to the data (e.g., count the number of observations)
+- `position`: how to adjust the positions of displayed elements (e.g., jittering points in a scatterplot)
+- `coordinate`: whether to use Cartesian coordinates or polar coordinates
+- `facet`: how to subset the data to create multiple subplots
+- `theme`: themes control the display of all non-data elements of the plot
 
 ---
 
@@ -287,21 +233,15 @@ knitr::include_graphics("img/starwars-help-annotated.png")
 ---
 
 .your-turn[
-- Open the `data-vis-in-r-ggplot2/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
 - Answer the questions for `Your Turn 1 - Explore the data`
   - How many **variables** are present in the `starwars` data?
   - How many **observations** are present in the `starwars` data?
   - How many **numeric** variables are present? What are they?
-- But, a mini R Markdown review before you get started!
 ]
 
 ```{r echo=FALSE}
-countdown(minutes = 3, seconds = 00)
+countdown(minutes = 2, seconds = 00)
 ```
-
-.footnote[
-The materials for this workshop are at:<br> [github.com/jhu-data-services/data-vis-in-r-with-ggplot2](github.com/jhu-data-services/data-vis-in-r-with-ggplot2)
-]
 
 ---
 
@@ -713,20 +653,14 @@ knitr::include_graphics("img/jabbaplot.png")
 ---
 
 .your-turn[
-- Open the `data-vis-in-r-ggplot2/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
-- Complete the code for `Your turn 2 - Mappings`
-  - Modify the included code to plot height vs. birth_year. See `?starwars` for the definition of `birth_year` in this context.
-  - Can you guess who the outliers are?
+- Create a scatter plot displaying height vs. birth_year.  
+- Can you guess who the outliers are?
 
 ]
 
 ```{r echo=FALSE}
-countdown(minutes = 5, seconds = 00)
+countdown(minutes = 3, seconds = 00)
 ```
-
-.footnote[
-The materials for this workshop are at:<br> [github.com/jhu-data-services/data-vis-in-r-ggplot2](github.com/jhu-data-services/data-vis-in-r-ggplot2)
-]
 
 ---
 
@@ -736,13 +670,13 @@ The materials for this workshop are at:<br> [github.com/jhu-data-services/data-v
 yoda <- image_read("img/yoda.png")
 
 fig <- image_graph(width = 2400, height = 1200, res = 300)
-ggplot(data = starwars, mapping = aes(x = height, y = birth_year)) +
-  geom_point(size = 1.5) + 
-  labs(title = "Mass vs. Birth year of Starwars characters",
-       x = "Birth year", y = "Weight (kg)")
+ggplot(data = starwars, mapping = aes(x = birth_year, y = height)) +
+  geom_point(size = 1.5) +
+  labs(title = "Height vs. Birth year of Starwars characters",
+       x = "Birth Year (Before Battle of Yavin)", y = "Height (cm)")
 dev.off()
 
-out <- fig %>% image_composite(yoda, offset = "+300+70")
+out <- fig %>% image_composite(yoda, offset = "+2050+700")
 
 image_write(out, "img/yodaplot.png", format = "png")
 knitr::include_graphics("img/yodaplot.png")
@@ -867,20 +801,25 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass, color = gender)) +
 ---
 
 .your-turn[
-- Open the `data-vis-in-r-ggplot/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
-- Complete the code for `Your turn 3 - Aesthetics`
-  - Map the variable `sex` to both point color and shape. What do you notice?
-  - Try mapping a categorical variable to x, for example `eye_color`. What happens?
-  - Try mapping a continuous variable to shape, for example `mass`. What happens?
+
+For the following code:
+
+```{r gender-color-shape, eval=FALSE}
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point()
+```
+
+- Map the variable `sex` to both point color and shape. What do you notice?
+- Try mapping a categorical variable to x, for example `eye_color`. What happens?
+- Try mapping a continuous variable to shape, for example `mass`. What happens?
 ]
 
 ```{r echo=FALSE}
-countdown(minutes = 5, seconds = 00)
+countdown(minutes = 3, seconds = 00)
 ```
 
-.footnote[
-The materials for this workshop are at:<br> [github.com/jhu-data-services/data-vis-in-r-ggplot2](github.com/jhu-data-services/data-vis-in-r-ggplot2)
-]
 
 ---
 
@@ -1267,32 +1206,6 @@ ggplot(data = starwars,
 
 ---
 
-.small[
-.your-turn[
-- Open the `data-vis-in-r-ggplot2/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
-- Complete the code for `Your turn 4 - Themes`
-  - Modify the provided plot to use a `theme_minimal()` theme.
-  - Modify the provided plot to:
-      - Add a plot title "Mass vs. height of Starwars characters"
-      - Add the plot subtitle "by gender and birth year"
-      - Add the x-label "Height (cm)"
-      - Add the y-label "Weight (kg)"
-      - Set the axis tick labels to size 14
-      - Set the axis titles to size 16
-      - Set the plot tile to size 18
-]
-]
-
-```{r echo=FALSE}
-countdown(minutes = 10, seconds = 00)
-```
-
-.footnote[
-The materials for this workshop are at:<br> [github.com/jhu-data-services/data-vis-in-r-ggplot2](github.com/jhu-data-services/data-vis-in-r-ggplot2)
-]
-
----
-
 class: middle
 
 # Faceting
@@ -1377,6 +1290,20 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 class: middle
 
 # Geometry
+
+---
+
+.discussion[
+What does `geom_smooth()` do?
+]
+
+```{r out.width="50%", warning=FALSE, message=FALSE}
+ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
+  geom_point() +
+  geom_smooth() + #<<
+  labs(title = "Mass vs. height of Starwars characters",
+       x = "Height (cm)", y = "Weight (kg)")
+```
 
 ---
 
@@ -1669,7 +1596,12 @@ class: middle
 
 # Questions?
 
+
+### Some Useful Resources:
+- [R for Data Science](https://r4ds.had.co.nz/)
+- [ggplot2: Elegant Graphics for Data Visualization](https://ggplot2-book.org/index.html)
+
 .footnote[
-Please complete the survey for this workshop:<br> [bit.ly/ggplot2-survey](bit.ly/ggplot2-survey)
+Please complete the survey for this workshop:<br> [bit.ly/ggplot2-survey](https://bit.ly/ggplot2-survey)
 ]
 ---

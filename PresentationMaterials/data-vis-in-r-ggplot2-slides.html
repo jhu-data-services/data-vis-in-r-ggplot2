@@ -3,7 +3,7 @@
   <head>
     <title>Data Visualization in R with ggplot2 📊</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Pete Lawson, Ph.D. Harshil Desai, TA " />
+    <meta name="author" content="Pete Lawson, Ph.D." />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -25,13 +25,13 @@ class: center, middle, inverse, title-slide
 ## An Introductory Workshop
 ]
 .author[
-### Pete Lawson, Ph.D.<br>Harshil Desai, TA<br>
+### Pete Lawson, Ph.D.
 ]
 .institute[
 ### <br>JHU Data Services
 ]
 .date[
-### October 12<sup>th</sup>, 2022
+### March 7<sup>th</sup>, 2023
 ]
 
 ---
@@ -49,8 +49,6 @@ layout: true
 class: top
 
 ## Workshop guidelines
-
-- **Workshop will be recorded.** We will make our best effort to respect the privacy of participants. Chat will not be recorded. 
 
 .pull-left[
 - **Help** is always available.
@@ -130,31 +128,7 @@ ggplot(data = [dataset],
 
 ---
 
-## Parameters of a full ggplot2 visualization:
-
-- `data`: the data frame to be plotted
-- `geometry`: how the data is to be displayed (e.g., scatterplot, barplot, etc.)
-- `mapping`: how the properties of the data map to the properties of the geometry (e.g., which columns map to X and Y coordinates)
-- `stat`: the transformation to apply to the data (e.g., count the number of observations)
-- `position`: how to adjust the positions of displayed elements (e.g., jittering points in a scatterplot)
-- `coordinate`: whether to use Cartesian coordinates or polar coordinates
-- `facet`: how to subset the data to create multiple subplots
-- `theme`: themes control the display of all non-data elements of the plot
-
-
----
-
 .panelset[
-.panel[.panel-name[Plot]
-
-
-```
-## Warning: Removed 28 rows containing missing values (geom_point).
-```
-
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-6-1.png" width="60%" /&gt;
-]
-
 .panel[.panel-name[Code]
 
 
@@ -166,59 +140,28 @@ ggplot(data = starwars,
        x = "Height (cm)", y = "Weight (kg)")
 ```
 ]
-]
+.panel[.panel-name[Plot]
 
----
-
-
-```
-## Warning: Removed 44 rows containing missing values (geom_point).
-```
-
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-8-1.png" width="75%" /&gt;
-
----
-
-.discussion[
-- What are the functions doing the plotting? 
-- What is the dataset being plotted? 
-- Which variable is on the x-axis and which variable is on the y-axis? 
-- What does the warning mean?
-]
-
-
-```r
-ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
-  geom_point() +
-  labs(
-    title = "Mass vs. height of Starwars characters",
-    x = "Height (cm)", 
-    y = "Weight (kg)"
-    )
-```
 
 ```
 ## Warning: Removed 28 rows containing missing values (geom_point).
 ```
 
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-7-1.png" width="60%" /&gt;
+]]
+
 ---
 
-.discussion[
-What does `geom_smooth()` do?
-]
+## Parameters of a full ggplot2 visualization:
 
-
-```r
-ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
-  geom_point() +
-* geom_smooth() +
-  labs(title = "Mass vs. height of Starwars characters",
-       x = "Height (cm)", y = "Weight (kg)")
-```
-
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-10-1.png" width="50%" /&gt;
-
-
+- `data`: the data frame to be plotted
+- `geometry`: how the data is to be displayed (e.g., scatterplot, barplot, etc.)
+- `mapping`: how the properties of the data map to the properties of the geometry (e.g., which columns map to X and Y coordinates)
+- `stat`: the transformation to apply to the data (e.g., count the number of observations)
+- `position`: how to adjust the positions of displayed elements (e.g., jittering points in a scatterplot)
+- `coordinate`: whether to use Cartesian coordinates or polar coordinates
+- `facet`: how to subset the data to create multiple subplots
+- `theme`: themes control the display of all non-data elements of the plot
 
 ---
 
@@ -367,22 +310,16 @@ How many rows and columns does this dataset have? What does each row represent? 
 ---
 
 .your-turn[
-- Open the `data-vis-in-r-ggplot2/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
 - Answer the questions for `Your Turn 1 - Explore the data`
   - How many **variables** are present in the `starwars` data?
   - How many **observations** are present in the `starwars` data?
   - How many **numeric** variables are present? What are they?
-- But, a mini R Markdown review before you get started!
 ]
 
-<div class="countdown" id="timer_2f02d34d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_6064e829" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
-
-.footnote[
-The materials for this workshop are at:&lt;br&gt; [github.com/jhu-data-services/data-vis-in-r-with-ggplot2](github.com/jhu-data-services/data-vis-in-r-with-ggplot2)
-]
 
 ---
 
@@ -403,7 +340,7 @@ class: middle
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-21-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-18-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -420,7 +357,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-23-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-20-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -438,7 +375,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-25-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-22-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -457,7 +394,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-27-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-24-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -477,7 +414,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-29-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-26-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -498,7 +435,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-31-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-28-1.png" width="100%" /&gt;
 ]
 ---
 
@@ -519,7 +456,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-33-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-30-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -542,7 +479,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-35-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-32-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -566,7 +503,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-37-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-34-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -591,7 +528,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-39-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-36-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -617,7 +554,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-41-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-38-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -644,7 +581,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-43-1.png" width="100%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-40-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -666,7 +603,7 @@ ggplot(data = starwars,
   geom_point() 
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-44-1.png" width="60%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-41-1.png" width="60%" /&gt;
 
 ---
 
@@ -682,7 +619,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 *      y = "Weight (kg)")
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-45-1.png" width="70%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-42-1.png" width="70%" /&gt;
 ]
 
 ---
@@ -693,7 +630,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 How would you describe this relationship? What other variables would help us understand data points that don't follow the overall trend? Who is the not so tall but really heavy character?
 ]
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-46-1.png" width="60%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-43-1.png" width="60%" /&gt;
 
 ---
 
@@ -703,21 +640,15 @@ How would you describe this relationship? What other variables would help us und
 ---
 
 .your-turn[
-- Open the `data-vis-in-r-ggplot2/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
-- Complete the code for `Your turn 2 - Mappings`
-  - Modify the included code to plot height vs. birth_year. See `?starwars` for the definition of `birth_year` in this context.
-  - Can you guess who the outliers are?
+- Create a scatter plot displaying height vs. birth_year.  
+- Can you guess who the outliers are?
 
 ]
 
-<div class="countdown" id="timer_bd0a9516" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_494f3666" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
-
-.footnote[
-The materials for this workshop are at:&lt;br&gt; [github.com/jhu-data-services/data-vis-in-r-ggplot2](github.com/jhu-data-services/data-vis-in-r-ggplot2)
-]
 
 ---
 
@@ -751,7 +682,7 @@ class: middle
 
 An aesthetic is a visual property of the objects in your plot. Aesthetics include things like the size, the shape, or the color of your points. 
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-50-1.png" width="50%" height="30%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-47-1.png" width="50%" height="30%" /&gt;
 
 You can convey information about your data by mapping the aesthetics in your plot to the variables in your dataset.
 
@@ -771,7 +702,7 @@ ggplot(data = starwars,
        y = "Weight (kg)")                            
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-51-1.png" width="60%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-48-1.png" width="60%" /&gt;
 ]
 
 ---
@@ -804,7 +735,7 @@ ggplot(data = starwars,
        y = "Weight (kg)")                            
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-52-1.png" width="60%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-49-1.png" width="60%" /&gt;
 ]
 
 ---
@@ -825,7 +756,7 @@ ggplot(data = starwars,
        x = "Height (cm)", y = "Weight (kg)")
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-53-1.png" width="60%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-50-1.png" width="60%" /&gt;
 ]
 
 ---
@@ -841,28 +772,34 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass, color = gender)) +
 * geom_point(size = 2)
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-54-1.png" width="63%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-51-1.png" width="63%" /&gt;
 ]
 
 
 ---
 
 .your-turn[
-- Open the `data-vis-in-r-ggplot/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
-- Complete the code for `Your turn 3 - Aesthetics`
-  - Map the variable `sex` to both point color and shape. What do you notice?
-  - Try mapping a categorical variable to x, for example `eye_color`. What happens?
-  - Try mapping a continuous variable to shape, for example `mass`. What happens?
+
+For the following code:
+
+
+```r
+ggplot(data = starwars, 
+       mapping = aes(x = height, 
+                     y = mass)) +
+  geom_point()
+```
+
+- Map the variable `sex` to both point color and shape. What do you notice?
+- Try mapping a categorical variable to x, for example `eye_color`. What happens?
+- Try mapping a continuous variable to shape, for example `mass`. What happens?
 ]
 
-<div class="countdown" id="timer_fa59d4ab" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_4ab4dc5c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
-.footnote[
-The materials for this workshop are at:&lt;br&gt; [github.com/jhu-data-services/data-vis-in-r-ggplot2](github.com/jhu-data-services/data-vis-in-r-ggplot2)
-]
 
 ---
 
@@ -922,7 +859,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-57-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -952,7 +889,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -982,7 +919,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-61-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1012,7 +949,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1042,7 +979,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-62-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1072,7 +1009,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -1102,7 +1039,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -1132,34 +1069,7 @@ ggplot(data = starwars,
 ]
 
 .pull-right[
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
-]
-
----
-
-.small[
-.your-turn[
-- Open the `data-vis-in-r-ggplot2/In-ClassScripts/ggplot2-workshop-exercises.Rmd` RMarkdown file.
-- Complete the code for `Your turn 4 - Themes`
-  - Modify the provided plot to use a `theme_minimal()` theme.
-  - Modify the provided plot to:
-      - Add a plot title "Mass vs. height of Starwars characters"
-      - Add the plot subtitle "by gender and birth year"
-      - Add the x-label "Height (cm)"
-      - Add the y-label "Weight (kg)"
-      - Set the axis tick labels to size 14
-      - Set the axis titles to size 16
-      - Set the plot tile to size 18
-]
-]
-
-<div class="countdown" id="timer_9d3bc78f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
-.footnote[
-The materials for this workshop are at:&lt;br&gt; [github.com/jhu-data-services/data-vis-in-r-ggplot2](github.com/jhu-data-services/data-vis-in-r-ggplot2)
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-68-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1186,7 +1096,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 *      subtitle = "Faceted by gender")
 ```
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-73-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1207,7 +1117,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_grid(gender ~ .)
 ```
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-70-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1220,7 +1130,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_grid(. ~ gender)
 ```
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1233,7 +1143,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_grid(sex ~ gender)
 ```
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-76-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-72-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1246,7 +1156,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_wrap(~ eye_color)
 ```
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-77-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-73-1.png)&lt;!-- --&gt;
 
 ---
 ## Facet summary
@@ -1267,17 +1177,34 @@ class: middle
 ---
 
 .discussion[
+What does `geom_smooth()` do?
+]
+
+
+```r
+ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
+  geom_point() +
+* geom_smooth() +
+  labs(title = "Mass vs. height of Starwars characters",
+       x = "Height (cm)", y = "Weight (kg)")
+```
+
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-74-1.png" width="50%" /&gt;
+
+---
+
+.discussion[
 What is the difference between these plots?
 ]
 
 .pull-left[
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-78-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-79-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-76-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1356,7 +1283,7 @@ ggplot(data = starwars, mapping = aes(x = height)) +
   geom_histogram(binwidth = 10)
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-82-1.png" width="75%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-79-1.png" width="75%" /&gt;
 
 ---
 
@@ -1368,7 +1295,7 @@ ggplot(data = starwars, mapping = aes(x = height)) +
   geom_density()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-83-1.png" width="75%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-80-1.png" width="75%" /&gt;
 
 ---
 
@@ -1380,7 +1307,7 @@ ggplot(data = starwars, mapping = aes(y = height)) +
   geom_boxplot()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-84-1.png" width="60%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-81-1.png" width="60%" /&gt;
 
 ---
 
@@ -1398,7 +1325,7 @@ ggplot(data = starwars, mapping = aes(y = height, x = gender)) +
   geom_boxplot()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-85-1.png" width="75%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-82-1.png" width="75%" /&gt;
 
 ---
 
@@ -1412,7 +1339,7 @@ ggplot(data = starwars, mapping = aes(y = height, x = gender)) +
   geom_point()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-86-1.png" width="60%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-83-1.png" width="60%" /&gt;
 
 ---
 
@@ -1424,7 +1351,7 @@ ggplot(data = starwars, mapping = aes(y = height, x = gender)) +
   geom_violin()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-87-1.png" width="75%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-84-1.png" width="75%" /&gt;
 
 ---
 
@@ -1439,7 +1366,7 @@ ggplot(data = starwars, mapping = aes(y = height, x = gender)) +
   geom_jitter()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-89-1.png" width="75%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-86-1.png" width="75%" /&gt;
 
 ---
 
@@ -1452,7 +1379,7 @@ ggplot(data = starwars, mapping = aes(y = height, x = gender)) +
   geom_beeswarm()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-90-1.png" width="70%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-87-1.png" width="70%" /&gt;
 
 ---
 
@@ -1470,7 +1397,7 @@ ggplot(data = starwars, mapping = aes(x = gender)) +
   geom_bar()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-91-1.png" width="70%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-88-1.png" width="70%" /&gt;
 
 ---
 
@@ -1483,7 +1410,7 @@ ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color)) +
   geom_bar()
 ```
 
-![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-92-1.png)&lt;!-- --&gt;
+![](data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-89-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1511,7 +1438,7 @@ ggplot(data = starwars,
   geom_bar()
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-94-1.png" width="65%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-91-1.png" width="65%" /&gt;
 
 ---
 
@@ -1524,7 +1451,7 @@ ggplot(data = starwars,
   geom_bar(position = 'dodge')
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-95-1.png" width="65%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-92-1.png" width="65%" /&gt;
 
 ---
 
@@ -1538,7 +1465,7 @@ ggplot(data = starwars,
   labs(x = "proportion")
 ```
 
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-96-1.png" width="65%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-93-1.png" width="65%" /&gt;
 
 ---
 
@@ -1547,10 +1474,10 @@ Which bar plot is a more useful representation for visualizing the relationship 
 ]
 
 .pull-left[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-97-1.png" width="95%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-94-1.png" width="95%" /&gt;
 ]
 .pull-right[
-&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-98-1.png" width="95%" /&gt;
+&lt;img src="data-vis-in-r-ggplot2-slides_files/figure-html/unnamed-chunk-95-1.png" width="95%" /&gt;
 ]
 
 
@@ -1560,8 +1487,13 @@ class: middle
 
 # Questions?
 
+
+### Some Useful Resources:
+- [R for Data Science](https://r4ds.had.co.nz/)
+- [ggplot2: Elegant Graphics for Data Visualization](https://ggplot2-book.org/index.html)
+
 .footnote[
-Please complete the survey for this workshop:&lt;br&gt; [bit.ly/ggplot2-survey](bit.ly/ggplot2-survey)
+Please complete the survey for this workshop:&lt;br&gt; [bit.ly/ggplot2-survey](https://bit.ly/ggplot2-survey)
 ]
 ---
     </textarea>
